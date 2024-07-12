@@ -57,9 +57,7 @@ const VoterVerification = () => {
             const response = await fetch('https://vs-backend.vercel.app/check-face', {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json',
-                },
+                mode: 'no-cors'
             });
 
             if (!response.ok) {
