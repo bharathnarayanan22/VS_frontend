@@ -96,7 +96,7 @@ const EnrollVoterForm = () => {
         formData.append(`File${index + 1}`, dataURItoBlob(photo), `photo${index + 1}.jpg`);
       });
   
-      const response = await fetch('http://localhost:5000/post-face', {
+      const response = await fetch('https://vs-backend.vercel.app/post-face', {
         method: 'POST',
         body: formData
       });

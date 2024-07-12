@@ -8,7 +8,7 @@ const EditPartyForm = ({ party, onUpdate }) => {
 
   const handleUpdateParty = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/parties/${party._id}`, {
+      const response = await fetch(`https://vs-backend.vercel.app/parties/${party._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

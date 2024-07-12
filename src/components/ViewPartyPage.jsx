@@ -14,7 +14,7 @@ const ViewPartyPage = () => {
 
   const fetchParties = async () => {
     try {
-      const response = await fetch('http://localhost:5000/parties');
+      const response = await fetch('https://vs-backend.vercel.app/parties');
       if (response.ok) {
         const data = await response.json();
         setParties(data.parties);
@@ -32,7 +32,7 @@ const ViewPartyPage = () => {
 
   const handleDeleteParty = async (partyId) => {
     try {
-      const response = await fetch(`http://localhost:5000/parties/${partyId}`, {
+      const response = await fetch(`https://vs-backend.vercel.app/parties/${partyId}`, {
         method: 'DELETE',
       });
       if (response.ok) {

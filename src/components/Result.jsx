@@ -11,7 +11,7 @@ const ViewLiveResultPage = () => {
 
   const fetchParties = async () => {
     try {
-      const response = await fetch('http://localhost:5000/parties/ViewResults');
+      const response = await fetch('https://vs-backend.vercel.app/parties/ViewResults');
       if (response.ok) {
         const data = await response.json();
         setParties(data.parties);
