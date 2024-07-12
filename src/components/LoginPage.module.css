@@ -1,0 +1,49 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(180deg, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
+    padding: 20px;
+  }
+  
+  .loginForm {
+    background: #004d99;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    
+  }
+  
+  .loginForm h2 {
+    margin-bottom: 10px;
+    color: white; /* Ashoka Chakra color */
+  }
+  
+  .loginForm input {
+    display: block;
+    width: 98%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .loginForm button {
+    background-color: #138808; /* Green color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .loginForm button:hover {
+    background-color: #ff9933 ; /* Darker green for hover effect */
+  }
+  
