@@ -56,8 +56,7 @@ const VoterVerification = () => {
         try {
             const response = await fetch('https://vs-backend-fh1x.onrender.com/check-face', {
                 method: 'POST',
-                body: formData,
-                mode: 'no-cors'
+                body: formData
             });
 
             if (!response.ok) {
