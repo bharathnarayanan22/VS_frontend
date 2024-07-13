@@ -12,7 +12,7 @@ const ViewVoterPage = () => {
 
   const fetchParties = async () => {
     try {
-      const response = await fetch('https://vs-backend.vercel.app/parties');
+      const response = await fetch('https://vs-backend-fh1x.onrender.com/parties');
       if (response.ok) {
         const data = await response.json();
         setParties(data.parties);
@@ -26,7 +26,7 @@ const ViewVoterPage = () => {
 
   const handleVote = async (partyId) => {
     try {
-      const response = await fetch(`https://vs-backend.vercel.app/voters/vote/${partyId}`, {
+      const response = await fetch(`https://vs-backend-fh1x.onrender.com/voters/vote/${partyId}`, {
         method: 'POST',
       });
       if (response.ok) {

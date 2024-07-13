@@ -11,7 +11,7 @@ const ViewLiveResultPage = () => {
 
   const fetchParties = async () => {
     try {
-      const response = await fetch('https://vs-backend.vercel.app/parties/ViewResults');
+      const response = await fetch('https://vs-backend-fh1x.onrender.com/parties/ViewResults');
       if (response.ok) {
         const data = await response.json();
         setParties(data.parties);

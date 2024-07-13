@@ -133,7 +133,7 @@ const EnrollPartyForm = () => {
 
   const handleEnrollParty = async () => {
     try {
-      const response = await fetch('https://vs-backend.vercel.app/enroll-party', {
+      const response = await fetch('https://vs-backend-fh1x.onrender.com/enroll-party', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

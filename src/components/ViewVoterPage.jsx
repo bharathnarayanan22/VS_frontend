@@ -22,7 +22,7 @@ const ViewVoterPage = () => {
 
   const fetchVoters = async () => {
     try {
-      const response = await fetch('https://vs-backend.vercel.app/voters');
+      const response = await fetch('https://vs-backend-fh1x.onrender.com/voters');
       if (response.ok) {
         const data = await response.json();
         setVoters(data.voters);
@@ -38,7 +38,7 @@ const ViewVoterPage = () => {
 
   const handleDeleteVoter = async (voterId) => {
     try {
-      const response = await fetch(`https://vs-backend.vercel.app/voters/${voterId}`, {
+      const response = await fetch(`https://vs-backend-fh1x.onrender.com/voters/${voterId}`, {
         method: 'DELETE',
       });
       if (response.ok) {

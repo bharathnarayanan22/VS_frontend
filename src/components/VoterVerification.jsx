@@ -54,7 +54,7 @@ const VoterVerification = () => {
         formData.append('File1', dataURItoBlob(imageData), 'snapshot.jpg');
 
         try {
-            const response = await fetch('https://vs-backend.vercel.app/check-face', {
+            const response = await fetch('https://vs-backend-fh1x.onrender.com/check-face', {
                 method: 'POST',
                 body: formData,
                 mode: 'no-cors'
