@@ -27,8 +27,10 @@ import CardContent from '@mui/material/CardContent';
 import List from '@mui/material/List';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-
-
+import p1 from "../assets/pngegg (7).png"
+import p2 from "../assets/pngegg (6).png"
+import p3 from "../assets/pngegg (9).png"
+import p4 from "../assets/pngegg (4).png"
 
 const drawerWidth = 240;
 
@@ -208,7 +210,7 @@ export default function OrganizerDashboard() {
                 <CardMedia
                   component="img"
                   sx={{ height: 180, width: '70%', objectFit: 'cover', margin: '0 auto', marginTop: 2 , }}
-                  image="src/assets/pngegg (6).png"
+                  image={p2}
                   alt="Enroll Voter"
                 />
                 <CardContent>
@@ -221,7 +223,7 @@ export default function OrganizerDashboard() {
                 <CardMedia
                   component="img"
                   sx={{ height: 180, width: '80%', objectFit: 'cover', margin: '0 auto', marginTop: 2 }}
-                  image="src/assets/pngegg (9).png"
+                  image={p3}
                   alt="Enroll Party"
                 />
                 <CardContent>
@@ -234,7 +236,7 @@ export default function OrganizerDashboard() {
                 <CardMedia
                   component="img"
                   sx={{ height: 180, width: '70%', objectFit: 'cover', margin: '0 auto', marginTop: 2 }}
-                  image="src/assets/pngegg (7).png"
+                  image={p1}
                   alt="View Voters"
                 />
                 <CardContent>
@@ -248,7 +250,7 @@ export default function OrganizerDashboard() {
                 <CardMedia
                   component="img"
                   sx={{ height: 180, width: '55%', objectFit: 'cover', margin: '0 auto', marginTop: 2 }}
-                  image="src/assets/pngegg (4).png"
+                  image={p4}
                   alt="View Parties"
                 />
                 <CardContent>

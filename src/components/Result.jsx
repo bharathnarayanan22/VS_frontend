@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box } from '@mui/material';
+import img from '../assets/government.png'; // Adjust this path if necessary
+
 
 const ViewLiveResultPage = () => {
   const [parties, setParties] = useState([]);
@@ -45,7 +47,7 @@ const ViewLiveResultPage = () => {
         left: 0,
         width: '100%',
         height: '80%',
-        backgroundImage: `url('src/assets/government.png')`, // Replace with your image path
+        backgroundImage: `url(${img})`, // Replace with your image path
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
