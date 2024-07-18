@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './MotionIntro.css'; // Ensure this path is correct
+import './MotionIntro.css'; 
+import logo from '../assets/logo.png'; // Adjust this path if necessary
+
 
 const MotionIntro = () => {
   const navigate = useNavigate();
@@ -44,7 +46,7 @@ const MotionIntro = () => {
       animate="visible"
     >
       <motion.img
-        src="src/assets/logo.png" // Ensure the path to your logo is correct
+        src={logo}
         alt="Logo"
         className="logo"
         variants={logoVariants}
