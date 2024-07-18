@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Button, Box } from '@mui/material';
-
+import img from '../assets/government.png'; 
 const ViewVoterPage = () => {
   const [parties, setParties] = useState([]);
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ const ViewVoterPage = () => {
         left: 0,
         width: '100%',
         height: '80%',
-        backgroundImage: `url('src/assets/government.png')`, // Replace with your image path
+        backgroundImage: `url(${img})`, // Replace with your image path
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',

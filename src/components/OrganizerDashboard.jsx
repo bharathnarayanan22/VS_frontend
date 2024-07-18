@@ -27,10 +27,12 @@ import CardContent from '@mui/material/CardContent';
 import List from '@mui/material/List';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-import p1 from "../assets/pngegg (7).png"
-import p2 from "../assets/pngegg (6).png"
-import p3 from "../assets/pngegg (9).png"
-import p4 from "../assets/pngegg (4).png"
+import p1 from "../assets/pngegg (7).png";
+import p2 from "../assets/pngegg (6).png";
+import p3 from "../assets/pngegg (9).png";
+import p4 from "../assets/pngegg (4).png";
+import chakra from "../assets/chakra.png";  // Ensure the path is correct
+
 
 const drawerWidth = 240;
 
@@ -124,10 +126,30 @@ export default function OrganizerDashboard() {
   const handleHomeClick = () => {
     navigate('/home');
   };
-
+  console.log(chakra);
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+      <Box
+  sx={{
+    display: 'flex',
+    minHeight: '100vh',
+  }}
+>
+<div
+  style={{
+    backgroundImage: `url(${chakra})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'contain', // Adjust 'contain' or 'cover' as per your preference
+    backgroundRepeat: 'no-repeat',
+    opacity: 0.5, // Adjust opacity as needed (0.0 to 1.0)
+    height: '100%', // Adjust the height of the background image
+    width: '100%', // Adjust the width of the background image
+    position: 'absolute',
+    // Adjust left position to center horizontally
+    zIndex: -1, // Ensure the background image is behind the content
+  }}
+/>
+
         <CssBaseline />
         <AppBar position="fixed" open={open}>
           <Toolbar>
