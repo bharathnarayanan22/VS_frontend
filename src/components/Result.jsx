@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box } from '@mui/material';
+import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box, Skeleton } from '@mui/material';
 import img from '../assets/government.png'; // Adjust this path if necessary
-
 
 const ViewLiveResultPage = () => {
   const [parties, setParties] = useState([]);
   const [totalVotes, setTotalVotes] = useState(0);
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     fetchParties();
@@ -25,6 +25,8 @@ const ViewLiveResultPage = () => {
       }
     } catch (error) {
       console.error('Error fetching parties:', error);
+    } finally {
+      setLoading(false); // Set loading to false once the data is fetched
     }
   };
 
@@ -67,13 +69,34 @@ const ViewLiveResultPage = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {parties.map((party) => (
-              <TableRow key={party._id}>
-                <TableCell style={{ textAlign: 'center' }}>{party.partyName}</TableCell>
-                <TableCell style={{ textAlign: 'center' }}>{party.partySymbol}</TableCell>
-                <TableCell style={{ textAlign: 'center' }}>{party.VoteCount}</TableCell>
-              </TableRow>
-            ))}
+            {loading ? (
+              // Display Skeletons while loading
+              <>
+                <TableRow>
+                  <TableCell colSpan={3}>
+                    <Skeleton variant="rectangular" width="100%" height={50} />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell colSpan={3}>
+                    <Skeleton variant="rectangular" width="100%" height={50} />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell colSpan={3}>
+                    <Skeleton variant="rectangular" width="100%" height={50} />
+                  </TableCell>
+                </TableRow>
+              </>
+            ) : (
+              parties.map((party) => (
+                <TableRow key={party._id}>
+                  <TableCell style={{ textAlign: 'center' }}>{party.partyName}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{party.partySymbol}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{party.VoteCount}</TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </Box>

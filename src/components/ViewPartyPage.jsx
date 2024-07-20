@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, IconButton, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import { Typography, IconButton, Table, TableHead, TableBody, TableRow, TableCell, Skeleton, Box } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditPartyForm from './EditPartyForm';
@@ -7,6 +7,7 @@ import EditPartyForm from './EditPartyForm';
 const ViewPartyPage = () => {
   const [parties, setParties] = useState([]);
   const [editingParty, setEditingParty] = useState(null);
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     fetchParties();
@@ -23,6 +24,8 @@ const ViewPartyPage = () => {
       }
     } catch (error) {
       console.error('Error fetching parties:', error);
+    } finally {
+      setLoading(false); // Set loading to false once the data is fetched
     }
   };
 
@@ -66,19 +69,40 @@ const ViewPartyPage = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {parties.map((party) => (
-            <TableRow key={party._id}>
-              <TableCell>{party.partyName}</TableCell>
-              <TableCell>{party.partyLeader}</TableCell>
-              <TableCell>{party.partySymbol}</TableCell>
-              <TableCell>
-                <IconButton onClick={() => handleEditParty(party)} style={{ color: '#FF9933' }} 
-                  sx={{ '&:hover': { color: 'blue' } }}><EditIcon /></IconButton>
-                <IconButton onClick={() => handleDeleteParty(party._id)} style={{ color: '#FF9933' }} 
-                  sx={{ '&:hover': { color: 'blue' } }}><DeleteIcon /></IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
+          {loading ? (
+            // Display Skeletons while loading
+            <>
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <Skeleton variant="rectangular" width="100%" height={50} />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <Skeleton variant="rectangular" width="100%" height={50} />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <Skeleton variant="rectangular" width="100%" height={50} />
+                </TableCell>
+              </TableRow>
+            </>
+          ) : (
+            parties.map((party) => (
+              <TableRow key={party._id}>
+                <TableCell>{party.partyName}</TableCell>
+                <TableCell>{party.partyLeader}</TableCell>
+                <TableCell>{party.partySymbol}</TableCell>
+                <TableCell>
+                  <IconButton onClick={() => handleEditParty(party)} style={{ color: '#FF9933' }} 
+                    sx={{ '&:hover': { color: 'blue' } }}><EditIcon /></IconButton>
+                  <IconButton onClick={() => handleDeleteParty(party._id)} style={{ color: '#FF9933' }} 
+                    sx={{ '&:hover': { color: 'blue' } }}><DeleteIcon /></IconButton>
+                </TableCell>
+              </TableRow>
+            ))
+          )}
         </TableBody>
       </Table>
       {editingParty && <EditPartyForm party={editingParty} onUpdate={handleUpdateParty} />}
